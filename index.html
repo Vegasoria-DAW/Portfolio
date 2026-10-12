@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="pageTitle">José Antonio Vega Soria — Desarrollador Web Fullstack</title>
+<meta name="description" data-i18n-content="metaDesc" content="Portfolio de José Antonio Vega Soria, Desarrollador de Aplicaciones Web Fullstack con 2 años de experiencia en React, Next.js y Node.js" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        base: '#10130E',
+        darkstrong: '#1A1F16',
+        darklight: '#242B1F',
+        footerdark: '#0B0E09',
+        brand: '#C9D64F',
+        greymuted: '#A3AC96',
+        magenta: '#DF058D',
+        deepblue: '#2C49D8',
+        orange: '#FF6B2B',
+        violet: '#9440E8',
+      },
+      fontFamily: {
+        heading: ['"Space Grotesk"', 'sans-serif'],
+        body: ['Archivo', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      }
+    }
+  }
+}
+</script>
+<link rel="preload" as="image" href="fotos/background.jpg" />
+<link rel="preload" as="image" href="fotos/backgroundExpertise.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-base text-[#EDEFE3] font-body antialiased">
+
+<!-- Language switcher: lateral izquierdo ES/EN -->
+<div id="lang-switcher" role="group" aria-label="Language / Idioma" data-lang="es">
+  <span class="lang-indicator" aria-hidden="true"></span>
+  <button type="button" class="lang-btn active" data-lang-btn="es" aria-pressed="true">ES</button>
+  <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+</div>
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-brand focus:text-black focus:px-4 focus:py-2 focus:rounded" data-i18n="skip">Saltar al contenido</a>
+
+<!-- HEADER 1:1 tamalsen.dev — header-3, transparent > sticky rgba(26,26,26,.8) a 250px -->
+<header id="masthead" class="header fixed top-0 left-0 right-0 z-50" data-header-fixed="true" data-fixed-initial-offset="250">
+  <div class="header-wrap">
+    <div class="header-wrap-inner">
+      <div class="left-part">
+        <div class="mobile-hamburger">
+          <button id="menu-btn" class="hamburger-holder" aria-label="Abrir menú" data-i18n-aria="menuOpen" aria-expanded="false" aria-controls="site-navigation">
+            <span class="_shape"></span>
+            <span class="_shape"></span>
+          </button>
+        </div>
+        <div class="branding">
+          <a class="branding-title" href="#hero-section" rel="home" aria-label="Vega — inicio" data-i18n-aria="brandHome"><span class="logo-name">Vega</span><span class="logo-dot">.</span><span class="logo-cursor" aria-hidden="true">_</span></a>
+        </div>
+      </div>
+      <div class="right-part">
+        <nav id="site-navigation" class="nav" aria-label="Principal" data-i18n-aria="navAria">
+          <ul id="primary-menu" class="menu">
+            <li class="nav-item"><a href="#hero-section" data-nav="hero-section" class="menu-link nav-link"><span data-i18n="navHome">// inicio</span></a></li>
+            <li class="nav-item"><a href="#expertise" data-nav="expertise" class="menu-link nav-link"><span data-i18n="navExpertise">// experiencia</span></a></li>
+            <li class="nav-item"><a href="#work" data-nav="work" class="menu-link nav-link"><span data-i18n="navWork">// proyectos</span></a></li>
+            <li class="nav-item"><a href="#experience" data-nav="experience" class="menu-link nav-link"><span data-i18n="navExperience">// trayectoria</span></a></li>
+            <li class="nav-item"><a href="#contact" data-nav="contact" class="menu-link nav-link"><span data-i18n="navContact">// contacto</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile overlay 1:1: fullscreen + copyright como el original -->
+  <div id="mobile-menu" class="mbl-overlay hidden" aria-hidden="true">
+    <div class="mbl-overlay-container">
+      <button id="menu-close" class="mbl-close" aria-label="Cerrar menú" data-i18n-aria="menuClose">×</button>
+      <ul class="mobile-menu menu">
+        <li class="nav-item"><a href="#hero-section" class="menu-link"><span data-i18n="navHome">// inicio</span></a></li>
+        <li class="nav-item"><a href="#expertise" class="menu-link"><span data-i18n="navExpertise">// experiencia</span></a></li>
+        <li class="nav-item"><a href="#work" class="menu-link"><span data-i18n="navWork">// proyectos</span></a></li>
+        <li class="nav-item"><a href="#experience" class="menu-link"><span data-i18n="navExperience">// trayectoria</span></a></li>
+        <li class="nav-item"><a href="#contact" class="menu-link"><span data-i18n="navContact">// contacto</span></a></li>
+      </ul>
+      <div class="copyright" data-i18n="mobileCopyright">© 2026. Hecho con pasión por <a href="#hero-section">José Antonio Vega Soria</a>.<br />Todos los derechos reservados.</div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO 1:1 tamalsen.dev — min-height centrado, h1 gigante, círculo flotante, subtítulo, carrusel, scroll-cue -->
+<section id="hero-section">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-container">
+    <div class="hero-spacer" aria-hidden="true"></div>
+    <h1 id="top-heading-name">Vega Soria</h1>
+    <div class="circle yel" id="circle-main" aria-hidden="true"></div>
+    <h5 class="hero-subtitle" data-i18n="heroSubtitle">DESARROLLO DE SOFTWARE Y APLICACIONES WEB</h5>
+    <div id="stack-section">
+      <div id="stack-label" data-i18n="stackLabel">Mi stack</div>
+      <div id="stack-carousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="carousel-slide"><span class="stack-logo">React</span></div>
+            <div class="carousel-slide"><span class="stack-logo">Next.js</span></div>
+            <div class="carousel-slide"><span class="stack-logo">TypeScript</span></div>
+            <div class="carousel-slide"><span class="stack-logo">Node.js</span></div>
+            <div class="carousel-slide"><span class="stack-logo">Express</span></div>
+            <div class="carousel-slide"><span class="stack-logo">MySQL</span></div>
+            <div class="carousel-slide"><span class="stack-logo">MongoDB</span></div>
+            <div class="carousel-slide"><span class="stack-logo">Tailwind CSS</span></div>
+            <div class="carousel-slide"><span class="stack-logo">Git</span></div>
+            <div class="carousel-slide"><span class="stack-logo">Docker</span></div>
+          </div>
+        </div>
+        <button class="carousel-arrow carousel-prev" aria-label="Anterior" data-i18n-aria="prevAria"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg><span class="elementor-screen-only" data-i18n="prevText">Anterior</span></button>
+        <button class="carousel-arrow carousel-next" aria-label="Siguiente" data-i18n-aria="nextAria"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg><span class="elementor-screen-only" data-i18n="nextText">Siguiente</span></button>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#expertise" aria-label="Ir a expertise" data-i18n-aria="scrollCue"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- EXPERTISE 1:1 tamalsen.dev — h2 + 3 icon-box con chonky underline + code-editor-style + imagen -->
+<section id="expertise" class="exp-section scroll-mt-20">
+  <div class="exp-container">
+    <h2 class="exp-title reveal" data-i18n="expTitle">Mi Experiencia</h2>
+
+    <div class="exp-grid">
+      <div class="exp-col reveal">
+        <div class="icon-box-headline">
+          <div class="icon-box-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42"><path d="M18,34.111l-1.667,6.667L14.111,43H31.889l-2.222-2.222L28,34.111M3,25.222H43M7.444,34.111H38.556A4.444,4.444,0,0,0,43,29.667V7.444A4.444,4.444,0,0,0,38.556,3H7.444A4.444,4.444,0,0,0,3,7.444V29.667A4.444,4.444,0,0,0,7.444,34.111Z" transform="translate(-2 -2)" fill="none" stroke="#EDEFE3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <h5 class="icon-box-title"><span class="chonky-underline-megenta" data-i18n="exp1a">Frontend</span><br /><span data-i18n="exp1b">Desarrollo</span></h5>
+        </div>
+        <div class="code-editor-style"><div class="elementor-heading-title" data-i18n="exp1desc">HTML, CSS, JS y TypeScript: React y Next.js, interfaces responsive y accesibles.</div></div>
+      </div>
+
+      <div class="exp-col reveal">
+        <div class="icon-box-headline">
+          <div class="icon-box-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="45" viewBox="0 0 40 44.964"><path d="M21.087,20.97a4.015,4.015,0,1,0,5.485,1.469A4.015,4.015,0,0,0,21.087,20.97Zm18,4.356q-.4-.452-.834-.906.307-.322.594-.644c3.61-4.056,5.134-8.124,3.722-10.57-1.354-2.345-5.381-3.044-10.422-2.063q-.745.146-1.482.329-.141-.486-.3-.967C28.65,5.351,25.887,2,23.064,2c-2.708,0-5.325,3.141-6.994,8q-.246.719-.456,1.449-.493-.121-.989-.223c-5.319-1.092-9.6-.373-11.013,2.074-1.351,2.347.062,6.182,3.436,10.054q.5.575,1.032,1.124c-.417.429-.812.859-1.18,1.285-3.293,3.817-4.625,7.59-3.276,9.927,1.393,2.413,5.617,3.2,10.758,2.191q.625-.124,1.243-.279.226.79.5,1.567c1.662,4.76,4.264,7.8,6.963,7.8,2.786,0,5.58-3.266,7.272-8.226.134-.392.26-.8.38-1.218q.8.2,1.607.353c4.954.937,8.886.2,10.232-2.138,1.39-2.415-.043-6.466-3.495-10.408ZM5.276,14.257c.867-1.506,4.369-2.094,8.961-1.151q.44.091.9.2a46.005,46.005,0,0,0-.947,6.02,46.956,46.956,0,0,0-4.73,3.807q-.493-.51-.96-1.045h0C5.6,18.773,4.462,15.671,5.276,14.257Zm8.738,12.878c-1.148-.869-2.215-1.76-3.183-2.655.968-.89,2.035-1.777,3.18-2.644q-.062,1.325-.061,2.651t.064,2.648Zm0,8.859a16.269,16.269,0,0,1-5.935.209,3.97,3.97,0,0,1-2.79-1.476c-.818-1.418.251-4.447,3.067-7.712q.531-.614,1.1-1.2a46.066,46.066,0,0,0,4.737,3.822,46.768,46.768,0,0,0,.958,6.1q-.564.141-1.135.254ZM29.977,17.92q-1.131-.713-2.29-1.38-1.141-.656-2.308-1.264c1.333-.561,2.644-1.039,3.909-1.429a40.955,40.955,0,0,1,.69,4.073Zm-12.092-7.3c1.43-4.162,3.547-6.7,5.179-6.7,1.738,0,4,2.739,5.473,7.189q.144.435.272.875a46.038,46.038,0,0,0-5.681,2.183,45.1,45.1,0,0,0-5.663-2.208Q17.659,11.286,17.886,10.622Z" transform="translate(-3.104 -2)" fill="#EDEFE3">></path></svg>
+          </div>
+          <h5 class="icon-box-title"><span class="chonky-underline-blue" data-i18n="exp2a">Backend</span><br /><span data-i18n="exp2b">Node, SQL/NoSQL</span></h5>
+        </div>
+        <div class="code-editor-style"><div class="elementor-heading-title" data-i18n="exp2desc">APIs REST con Node.js y Express, C# .NET y Python: auth JWT, MySQL y MongoDB, validación y documentación.</div></div>
+      </div>
+
+      <div class="exp-col reveal">
+        <div class="icon-box-headline">
+          <div class="icon-box-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="47" viewBox="0 0 38 46.769"><path d="M39.275,46.769h-13.7a.972.972,0,0,1-.69-.286L12.86,34.4a.976.976,0,0,1,0-1.376L24.886,20.964a.981.981,0,0,1,.692-.288h13.7a.974.974,0,0,1,.692,1.66L28.645,33.712,39.967,45.1a.977.977,0,0,1-.692,1.664Zm-13.3-1.949H36.932L26.579,34.4a.974.974,0,0,1,0-1.374l10.351-10.4H25.981L14.926,33.712ZM10.1,31.269a.972.972,0,0,1-.69-.286l-6.875-6.91a.976.976,0,0,1,0-1.376L24.86.286a.977.977,0,0,1,.894-.265H39.246a.974.974,0,0,1,.692,1.66l-29.147,29.3A.976.976,0,0,1,10.1,31.269ZM4.6,23.384l5.5,5.528L36.9,1.97H25.932Z" transform="translate(-2.25 0)" fill="#EDEFE3"></path></svg>
+          </div>
+          <h5 class="icon-box-title"><span class="chonky-underline-yellow" data-i18n="exp3a">Fullstack</span><br /><span data-i18n="exp3b">Despliegue, Git</span></h5>
+        </div>
+        <div class="code-editor-style"><div class="elementor-heading-title" data-i18n="exp3desc">Creo soluciones digitales funcionales, intuitivas y adaptadas a las necesidades de cada proyecto.</div></div>
+      </div>
+
+      <div class="exp-col exp-quote-col reveal">
+        <blockquote class="exp-blockquote">
+          <p class="elementor-blockquote__content" data-i18n="expQuote">Primero haz que funcione, luego que sea legible, luego que sea rápido.</p>
+          <cite class="elementor-blockquote__author" data-i18n="expQuoteAuthor">— Mi regla como fullstack junior</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="exp-image reveal">
+      <img src="fotos/backgroundExpertise.png" alt="Código HTML de ejemplo: hello world" data-i18n-alt="expImgAlt" width="582" height="291" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="font-mono text-brand text-sm mb-3 reveal" data-i18n="workLabel">// proyectos</p>
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <h2 class="work-h2 reveal" data-i18n="workTitle">Mis<br />Proyectos</h2>
+      <p class="work-intro reveal" data-i18n="workIntro">Tres webs: pastelería artesanal, movimiento de tierras y agencia digital. Diseño y desarrollo completos, SEO y captación.</p>
+    </div>
+
+    <!-- Featured -->
+    <article class="mt-10 grid lg:grid-cols-2 rounded-2xl overflow-hidden border border-white/10 bg-darkstrong reveal">
+      <div class="p-8 md:p-10 flex flex-col justify-center">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand" data-i18n="featuredLabel">Proyecto destacado</p>
+        <h3 class="font-heading text-3xl font-bold mt-3" data-i18n="featuredTitle">PARAÍSO — web completa para pastelería artesanal</h3>
+        <p class="mt-4 text-greymuted leading-relaxed text-[15px]" data-i18n="featuredDesc">Diseño y desarrollo completo con Vite + React: imagen de marca, captación para eventos y comuniones, SEO con Schema.org y experiencia móvil. Disponible en elparaisodeandrea.es.</p>
+        <div class="mt-4 flex flex-wrap gap-2"><span class="tag">Vite</span><span class="tag">React</span><span class="tag">SEO</span></div>
+        <div class="mt-6 flex gap-3">
+          <a href="https://elparaisodeandrea.es/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-brand text-[#10130E] text-sm font-semibold px-5 py-2.5 rounded-full hover:brightness-110 transition cursor-pointer"><span data-i18n="viewProject">Ver proyecto</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+        </div>
+      </div>
+      <div class="relative min-h-[260px] bg-gradient-to-br from-deepblue/40 via-violet/30 to-brand/20 grid place-items-center p-8">
+        <div class="w-full max-w-sm rounded-xl bg-[#0c0d10] border border-white/10 shadow-2xl overflow-hidden" aria-hidden="true">
+          <div class="flex gap-1.5 px-4 py-3 border-b border-white/10"><span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400/80"></span><span class="w-2.5 h-2.5 rounded-full bg-green-400/80"></span></div>
+          <div class="p-5 font-mono text-[13px] leading-6"><p><span class="text-violet">const</span> <span class="text-brand">paraiso</span> <span class="text-slate-400">= await</span> <span class="text-orange">api.get</span><span class="text-slate-300">('/productos', {</span></p><p class="pl-4 text-slate-300">tartas, cookies, eventos</p><p class="text-slate-300">}); <span class="text-greymuted">// 200 OK · live</span></p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Filters 1:1 tamalsen.dev — ohio portfolio-sorting -->
+    <div class="ohio-recent-projects-sc grid_1">
+    <div class="portfolio-sorting text-left reveal" role="tablist" aria-label="Filtrar proyectos" data-i18n-aria="filterAria">
+      <ul class="unstyled">
+        <li class="filter-by" data-i18n="filterLabel">Filtrar por</li>
+        <li><a class="active" href="#all" data-isotope-filter="*" data-filter="all"><span class="name" data-i18n="filterAll">Todos</span> <span class="num">03</span></a></li>
+        <li><span class="sep">/</span> <a href="#vite" data-isotope-filter=".ohio-filter-project-vite" data-filter="vite"><span class="name" data-i18n="filterVite">Vite + React</span> <span class="num">02</span></a></li>
+        <li><span class="sep">/</span> <a href="#vanilla" data-isotope-filter=".ohio-filter-project-vanilla" data-filter="vanilla"><span class="name" data-i18n="filterVanilla">HTML + JS</span> <span class="num">01</span></a></li>
+      </ul>
+    </div>
+
+    <div id="project-grid" class="vc_row portfolio-grid with-sorting" data-tilt-effect="true">
+      <!-- cards generadas por JS para mantenerlo editable -->
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-20 md:py-28 border-y border-white/10 scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="font-mono text-brand text-sm mb-3 reveal" data-i18n="expLabel">// trayectoria</p>
+    <h2 class="exp-h2 reveal" data-i18n="expSectionTitle">Experiencia<br />Profesional</h2>
+    <p class="mt-4 font-mono text-sm text-greymuted reveal" data-i18n="expSub">+2 años · fullstack React + .NET/Python</p>
+
+    <div class="mt-10 ohio-accordion accordion reveal" data-ohio-accordion="0">
+      <div class="accordionItem current">
+        <div class="accordionItem_title" role="button" tabindex="0" aria-expanded="true">
+          <i class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></i>
+          <h6><div><span class="position"><span data-i18n="job1Title">Desarrollador de Aplicaciones Web</span> <span class="at" data-i18n="job1Company">@ Paraíso · elparaisodeandrea.es</span></span><span class="time" data-i18n="job1Date">dic 2024 — Actualidad</span></div></h6>
+          <div class="accordionItem_control btn-round btn-round-small btn-round-light" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="accordionItem_content"><div class="wrap"><div class="acc-grid">
+          <div class="acc-main">
+            <ul class="acc-meta">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="job1Loc">Villamartín · Híbrido</span></li>
+              <li><a href="https://elparaisodeandrea.es/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4L10 14M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6"/></svg>elparaisodeandrea.es</a></li>
+            </ul>
+            <p data-i18n="job1Desc">Frontend React/JS/HTML-CSS y backend C# .NET + Python. PL/SQL en Oracle y ETL (-35% gestión de stock), Dynamics 365 y Low-Code para inventarios, Power BI para marketing. Git, APIs REST, Scrum.</p>
+            <ul class="acc-tags"><li>React</li><li>C# .NET</li><li>Python</li><li>Oracle</li><li>Dynamics 365</li><li>Power BI</li></ul>
+          </div>
+          <div class="acc-logo" aria-hidden="true"><span>P</span></div>
+        </div></div></div>
+      </div>
+      <div class="accordionItem">
+        <div class="accordionItem_title" role="button" tabindex="0" aria-expanded="false">
+          <i class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></i>
+          <h6><div><span class="position"><span data-i18n="job2Title">Desarrollador Web</span> <span class="at" data-i18n="job2Company">@ ControlNet</span></span><span class="time">sep 2024 — dic 2024</span></div></h6>
+          <div class="accordionItem_control btn-round btn-round-small btn-round-light" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="accordionItem_content"><div class="wrap"><div class="acc-grid">
+          <div class="acc-main">
+            <ul class="acc-meta">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="job2Loc">Jerez de la Frontera · Híbrido</span></li>
+            </ul>
+            <p data-i18n="job2Desc">Funcionalidades web con C#, WordPress y Shopify. Resolución de incidencias, depuración y entrega en plazo de 3 meses con equipo y clientes.</p>
+            <ul class="acc-tags"><li>C#</li><li>WordPress</li><li>Shopify</li><li>Git</li></ul>
+          </div>
+          <div class="acc-logo" aria-hidden="true"><span>C</span></div>
+        </div></div></div>
+      </div>
+      <div class="accordionItem">
+        <div class="accordionItem_title" role="button" tabindex="0" aria-expanded="false">
+          <i class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></i>
+          <h6><div><span class="position"><span data-i18n="job3Title">Jefe de Equipo</span> <span class="at" data-i18n="job3Company">@ Ocaso</span></span><span class="time">feb 2022 — may 2024</span></div></h6>
+          <div class="accordionItem_control btn-round btn-round-small btn-round-light" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="accordionItem_content"><div class="wrap"><div class="acc-grid">
+          <div class="acc-main">
+            <ul class="acc-meta">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="job3Loc">Jerez de la Frontera</span></li>
+            </ul>
+            <p data-i18n="job3Desc">Liderazgo y coordinación de equipos de 5 personas durante 2 años y 4 meses: turnos, objetivos, comunicación y toma de decisiones.</p>
+            <ul class="acc-tags"><li>Liderazgo</li><li>Organización</li><li>Comunicación</li></ul>
+          </div>
+          <div class="acc-logo" aria-hidden="true"><span>O</span></div>
+        </div></div></div>
+      </div>
+      <div class="accordionItem">
+        <div class="accordionItem_title" role="button" tabindex="0" aria-expanded="false">
+          <i class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></i>
+          <h6><div><span class="position"><span data-i18n="job4Title">CFGS Desarrollo de Aplicaciones Web</span> <span class="at" data-i18n="job4Company">· Santa Joaquina de Vedruna</span></span><span class="time">2022 — 2024</span></div></h6>
+          <div class="accordionItem_control btn-round btn-round-small btn-round-light" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="accordionItem_content"><div class="wrap"><div class="acc-grid">
+          <div class="acc-main">
+            <ul class="acc-meta">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="job4Loc">2022 — 2024 · + CFGS Marketing y Publicidad (2019 — 2021)</span></li>
+            </ul>
+            <p data-i18n="job4Desc">DAW + base previa de Marketing: frontend, backend, BBDD y despliegue. Perfil que une código, datos y negocio.</p>
+            <ul class="acc-tags"><li>DAW</li><li>Marketing</li><li>BBDD</li><li>Git</li></ul>
+          </div>
+          <div class="acc-logo" aria-hidden="true"><span>V</span></div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT + TESTIMONIOS -->
+<section id="contact" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
+    <div class="reveal">
+      <p class="font-mono text-brand text-sm mb-3" data-i18n="contactLabel">// contacto</p>
+      <h2 class="font-heading font-bold text-[clamp(2rem,4.5vw,3.2rem)] leading-tight" data-i18n="contactTitle">Disponible para<br /><span class="chonky chonky-blue">freelance y roles</span><br />frontend</h2>
+      <p class="mt-5 text-greymuted leading-relaxed max-w-md" data-i18n="contactIntro">¿Tienes un proyecto o un puesto frontend? Escríbeme, respondo en menos de 24h.</p>
+      <a href="mailto:vegaxlive@gmail.com" class="mt-4 inline-block font-mono text-brand hover:underline cursor-pointer">vegaxlive@gmail.com</a>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://www.linkedin.com/in/joseantoniovegasoria/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn cursor-pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14H.2V8zm7.6 0h4.4v1.9h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.4 3 5.4 6.9V22h-4.6v-6.6c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V22H7.8V8z"/></svg>LinkedIn</a>
+        <a href="https://github.com/Vegasoria-DAW" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn cursor-pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 000 .5a11.5 11.5 0 007.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0C16.9 2.7 17.9 3 17.9 3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0024 .5 11.5 11.5 0 0012 .5z"/></svg>GitHub</a>
+        <a href="mailto:vegaxlive@gmail.com" aria-label="Email" class="social-btn cursor-pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>Email</a>
+      </div>
+      <a href="https://wa.me/34674661253?text=Hola%20Jos%C3%A9%20Antonio%2C%20vi%20tu%20portfolio%20y%20quiero%20hablar%20de%20un%20proyecto" target="_blank" rel="noopener" class="mt-8 flex items-center justify-center gap-2 w-full max-w-[240px] ml-0 bg-brand text-[#10130E] font-semibold text-base py-3 px-5 rounded-xl hover:brightness-110 transition cursor-pointer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-i18n="whatsappBtn">Escríbeme</span>
+      </a>
+    </div>
+    <div class="space-y-5">
+      <p class="font-mono text-xs uppercase tracking-widest text-greymuted reveal" data-i18n="testiLabel">Testimonios</p>
+      <figure class="testi reveal"><blockquote data-i18n="testi1">“La web transmite lo que somos: tartas que entran por los ojos. Nos llegan peticiones para eventos y comuniones desde el primer mes.”</blockquote><figcaption><span class="t-avatar">AR</span><span><strong>Andrea Real</strong><br /><span class="text-greymuted text-sm" data-i18n="testi1Role">Pastelería artesanal · Villamartín</span></span></figcaption></figure>
+      <figure class="testi reveal"><blockquote data-i18n="testi2">“Por fin se entiende lo que hacemos: servicios claros, fotos reales de obra y nos llaman pidiendo presupuesto. Directo y sin rodeos.”</blockquote><figcaption><span class="t-avatar">MS</span><span><strong>María Soria</strong><br /><span class="text-greymuted text-sm" data-i18n="testi2Role">Movimiento de tierras · Cádiz</span></span></figcaption></figure>
+      <figure class="testi reveal"><blockquote data-i18n="testi3">“Da gusto trabajar con él: explica todo sin tecnicismos, entrega en plazo y la web quedó rápida y fácil de gestionar.”</blockquote><figcaption><span class="t-avatar">JN</span><span><strong data-i18n="testi3Name">José Antonio Naranjo</strong><br /><span class="text-greymuted text-sm" data-i18n="testi3Role">J-TECH · Agencia digital</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-footerdark border-t border-white/10 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between gap-3 font-mono text-sm text-greymuted">
+    <p data-i18n="footerText">© 2026 José Antonio Vega Soria. Hecho con café y JavaScript.</p>
+    <a href="#hero-section" class="hover:text-brand transition cursor-pointer" data-i18n="scrollTop">↑ Volver arriba</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

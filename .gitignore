@@ -1,0 +1,11 @@
+# Config local de herramientas
+.opencode/
+
+# Copias de seguridad de imagenes (quedan solo en local)
+*.orig.jpg
+*.orig.png
+*.orig.jpeg
+
+# Sistema
+Thumbs.db
+.DS_Store
