@@ -193,7 +193,7 @@ en: {
 };
 
 const grid = document.getElementById("project-grid");
-// Portada 1:1 Ohio: <img> 3:2 como los posters originales, en tonos del home
+// Portada: <img> en tonos del home
 function coverURI(p) {
   const c = p.cover || ["#2C49D8", "#C9D64F"];
   const initials = p.mono || p.title.charAt(0).toUpperCase();
@@ -244,7 +244,7 @@ function renderProjects(filter = "all") {
   });
   bindTilt();
 }
-// Tilt sutil 1:1 (data-tilt-effect="true"), desactivado con reduced motion
+// Tilt sutil, desactivado con reduced motion
 function bindTilt() {
   if (!grid || !grid.dataset || grid.dataset.tiltEffect !== "true") return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -320,7 +320,7 @@ document.querySelectorAll(".portfolio-sorting a[data-filter]").forEach(btn => {
   });
 });
 
-// Sticky 1:1 original: transparente -> rgba(26,26,26,.8) a partir de 250px
+// Sticky: transparente -> color sólido a partir de 250px
 const masthead = document.getElementById("masthead");
 const STICKY_OFFSET = 250;
 // Deslizamiento suave del menú al centro: se calcula el desplazamiento exacto
@@ -348,7 +348,7 @@ function onScrollSticky() {
   masthead.classList.toggle("nav-centered", stuck);
   if (changed) requestAnimationFrame(centerNav);
 }
-// Fade 1:1: navbar transparente -> rgba(26,26,26,.8) progresivo 0-250px
+// Fade: navbar transparente -> color sólido progresivo 0-250px
 // + fundido del hero al navegar desde home hacia otras secciones
 const heroContainer = document.querySelector("#hero-section .hero-container");
 const scrollCueEl = document.querySelector("#hero-section .scroll-cue");
@@ -377,7 +377,7 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(centerNav)
 requestFade();
 centerNav();
 
-// Acordeón experiencia 1:1 Ohio: un item abierto cada vez
+// Acordeón experiencia: un item abierto cada vez
 document.querySelectorAll(".ohio-accordion .accordionItem_title").forEach(title => {
   const toggle = () => {
     const item = title.closest(".accordionItem");
@@ -399,7 +399,7 @@ document.querySelectorAll(".ohio-accordion .accordionItem_title").forEach(title 
   });
 });
 
-// Menú móvil 1:1 (hamburguesa izquierda + overlay claro con copyright)
+// Menú móvil
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 const menuClose = document.getElementById("menu-close");
@@ -439,7 +439,7 @@ const secObserver = new IntersectionObserver(entries => {
 }, { rootMargin: "-40% 0px -55% 0px" });
 sections.forEach(id => { const s = document.getElementById(id); if (s) secObserver.observe(s); });
 
-// Stack carousel 1:1 (5/4/2 visibles, autoplay 5s, loop, pausa en hover e interacción)
+// Stack carousel
 (function initStackCarousel() {
   const track = document.querySelector("#stack-carousel .carousel-track");
   const viewport = document.querySelector("#stack-carousel .carousel-viewport");
